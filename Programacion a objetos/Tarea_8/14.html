@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h2> Objetos de visualización de JavaScript </h2>
+
+<p> JSON.stringify convertirá las fechas en cadenas: </p>
+
+<p id="demo"></p>
+
+<script>
+
+var person = {name:"John", today:new Date()};
+
+var myString = JSON.stringify(person);
+
+document.getElementById("demo").innerHTML = myString;
+
+</script>
+
+</body>
+
+</html>

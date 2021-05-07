@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+    document.write("La media geometrica es "+fun()+"<br>")
+    document.write("El promedio es "+fun2())
+    function fun(){
+        let mg=1
+        let nume=parseInt(prompt("De cuantos valores sera la media geometrica?"))
+        let vec=[]
+
+        for(let i=1;i<=nume;i++){
+            vec[i-1]=parseFloat(prompt("Dame el valor numero "+i+" de el arreglo"))
+            mg*=vec[i-1]
+        }
+        mg=mg**(1/nume)
+        return (mg);
+    }
+    function fun2(){
+        let pro=0
+        let nume=parseInt(prompt("De cuantos valores sera el promedio?"))
+        let vec=[]
+
+        for(let i=1;i<=nume;i++){
+            vec[i-1]=parseFloat(prompt("Dame el valor numero "+i+" para el promedio"))
+            pro+=vec[i-1]
+        }
+        pro/=nume
+        return(pro)
+    }
+
+</script>
+</html>

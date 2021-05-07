@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h2>JavaScript addEventListener()</h2>
+
+<p> Este ejemplo utiliza el método addEventListener () en el objeto de la ventana. </p>
+
+<p> Intente cambiar el tamaño de esta ventana del navegador para activar el controlador de eventos "cambiar tamaño". </p>
+
+<p id="demo"></p>
+
+<script>
+
+window.addEventListener("resize", function(){
+
+  document.getElementById("demo").innerHTML = Math.random();
+
+});
+
+</script>
+
+</body>
+
+</html>

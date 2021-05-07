@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h2>JavaScript Getters y Setters</h2>
+
+<p> Getters y setters te permiten obtener y establecer propiedades a través de métodos. </p>
+
+<p> Este ejemplo utiliza una propiedad lang para establecer el valor de la propiedad del idioma. </ p>
+
+<p id="demo"></p>
+
+<script>
+
+// Crear el bjeto
+
+var person = {
+
+  firstName: "John",
+
+  lastName : "Doe",
+
+  language : "NO",
+
+  set lang(value) {
+
+    this.language = value;
+
+  }
+
+};
+
+// Asignar un valor a la propiedad usando set:
+
+person.lang = "en";
+
+// Mostrar el valor del lenguaje que se asignó al objeto:
+
+document.getElementById("demo").innerHTML = person.language;
+
+</script>
+
+</body>
+
+</html>

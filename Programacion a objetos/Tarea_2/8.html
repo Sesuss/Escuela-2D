@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Dame el radio de la esfera: <input type="number" id="ra">
+<br>
+
+
+<p>Presiona en el boton para realizar la operacion</p>
+<button onclick="Sumar()">Calcular</button>
+<p id="resultado"></p>
+
+<script>
+function Sumar() {
+  var a=Number(document.getElementById("ra").value);
+  var c=(4/3*3.141592)*a**3;
+  document.getElementById("resultado").innerHTML="El area de la esfera es "+c;
+}
+</script>
+</body>
+</html>

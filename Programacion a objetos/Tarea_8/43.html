@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h2> JavaScript Object.defineProperty () </h2>
+
+ 
+
+<p> Este ejemplo utiliza el método defineProperty () para agregar un getter y un setter. </p>
+
+ 
+
+<p id="demo"></p>
+
+ 
+
+<script>
+
+// Create an object:
+
+var person = {
+
+firstName: "John",
+
+lastName : "Doe",
+
+language : "EN"
+
+};
+ 
+
+// Define a getter
+
+Object.defineProperty(person, "fullName", {
+
+  get : function () {return this.firstName + " " + this.lastName;}
+
+});
+
+ 
+
+// Display full name
+
+document.getElementById("demo").innerHTML = person.fullName;
+
+</script>
+
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h2> Constructores de objetos en JavaScript </h2>
+
+<p id="demo"></p>
+
+<script>
+
+// Función constructora para objetos de tuipo Person
+
+function Person(first, last, age, eye) {
+
+  this.firstName = first;
+
+  this.lastName = last;
+
+  this.age = age;
+
+  this.eyeColor = eye;
+
+}
+
+// Crear un objeto persona
+
+var myFather = new Person("John", "Doe", 50, "blue");
+
+// Mostrar edad
+
+document.getElementById("demo").innerHTML =
+
+"Mi padre es " + myFather.age + ".";
+
+</script>
+
+</body>
+
+</html>

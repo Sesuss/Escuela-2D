@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<p> Creación y uso de un método de objeto. </p>
+
+<p> Un método es en realidad una definición de función almacenada como un valor de propiedad. </p>
+
+<p id="demo"></p>
+
+<script>
+
+var person = {
+
+  firstName: "John",
+
+  lastName : "Doe",
+
+  id     : 5566,
+
+  fullName : function() {
+
+    return this.firstName + " " + this.lastName;
+
+  }
+
+};
+
+document.getElementById("demo").innerHTML = person.fullName();
+
+</script>
+
+</body>
+
+</html>

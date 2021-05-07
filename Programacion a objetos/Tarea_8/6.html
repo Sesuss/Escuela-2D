@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h2> El JavaScript <i> this </i> palabra clave </h2>
+
+<p> En este ejemplo, <b> this </b> representa el objeto <b> persona </b>. </p>
+
+<p> Porque el objeto persona "posee" el método fullName. </p>
+
+<p id="demo"></p>
+
+<script>
+
+// Create an object:
+
+var person = {
+
+  firstName: "John",
+
+  lastName : "Doe",
+
+  id     : 5566,
+
+  fullName : function() {
+
+    return this.firstName + " " + this.lastName;
+
+  }
+
+};
+
+// Display data from the object:
+
+document.getElementById("demo").innerHTML = person.fullName();
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="Examen.css">
+  </head>
+<body>
+ <div class="Caja ">
+   <img src="mushroom.png" alt="logo" class="Avatar">
+   <h1 class="sexo">Enfermedades de transmision sexual</h1>
+ <h1>Captura de registros </h1> <h4 id="Titulo"></h4>
+  
+ <!--BOTONES-->
+
+  Nombre: <br> <input type="text" id="Nombre" class="Boton"  >
+  <br>  
+  Efectos que causa en los humanos: <br> <input type="text" id="Efectosquecausaenloshumanos" class="Boton" >
+  <br>  
+  Tratamiento: <br> <input type="text" id="Tratamiento" class="Boton"> 
+  <br>  
+  Fotografia: <br> <input type="text" id="Fotografia" class="Boton" >
+  <br>  
+  <img src="" alt=" " width="100" height="100" id="Foto" >
+  <br>
+  <button onclick="Agregar()"id="Nuevo" class=" boton_personalizado " >Nuevo</button>
+  <button onclick="Editar()" class=" boton_personalizado ">Editar</button>
+  <button onclick="Eliminar()" id="Eliminar" class=" boton_personalizado ">Eliminar</button>
+  <br>
+  <button onclick="Primero()"class=" boton_personalizado ">Primero</button>
+  <button onclick="Siguiente()"class=" boton_personalizado ">Siguiente</button>
+  <button onclick="Anterior()"class=" boton_personalizado ">Anterior</button>
+  <button onclick="Ultimo()"class=" boton_personalizado ">Ultimo</button>
+  <hr>
+
+  <label for="campo">   Seleccione el campo a buscar </label>
+  <select name="campo" id="campo">
+    <option value="Nombre" >Nombre</option>
+    <option value="Efectosquecausaenloshumanos" >Efectos que causa en los humanos</option>
+    <option value="Tratamiento" >Tratamiento</option>
+    <option value="Fotografia" >Fotografia</option>
+  </select>
+  <input type="text" id="textoabuscar" class="Boton">
+  <button onclick="Buscar()" class=" boton_personalizado " > Buscar </button>
+</div>
+  <p id="resultado"></p>
+
+
+  <script>
+    arreglo=[];
+    txt="";
+    indice=0;
+    elemento="";
+    registroactual=0; 
+    totalderegistros=0;
+    desplegarRegistro();
+    habilitar();
+
+    document.getElementById("Nombre").disabled = true;
+    document.getElementById("Efectosquecausaenloshumanos").disabled = true;
+    document.getElementById("Tratamiento").disabled = true;
+    document.getElementById("Fotografia").disabled = true;
+
+    function habilitar()
+    {
+      document.getElementById("Nombre").disabled = false;
+      document.getElementById("Efectosquecausaenloshumanos").disabled = false;
+      document.getElementById("Tratamiento").disabled = false;
+      document.getElementById("Fotografia").disabled = false;
+    }
+
+    function desplegarRegistro ()
+    {   
+      if (totalderegistros==0) 
+      elemento=document.getElementById("Titulo").innerHTML = "No hay registros capturados actualmente!! ";
+      else
+      {
+        elemento=document.getElementById("Titulo").innerHTML = registroactual + " de " + totalderegistros;
+        elemento=document.getElementById("Nombre").value=arreglo[registroactual-1].Nombre;
+        elemento=document.getElementById("Efectosquecausaenloshumanos").value=arreglo[registroactual-1].Efectosquecausaenloshumanos;
+        elemento=document.getElementById("Tratamiento").value=arreglo[registroactual-1].Tratamiento;
+        elemento=document.getElementById("Fotografia").value=arreglo[registroactual-1].Fotografia;
+        elemento=document.getElementById("Foto").src=elemento=document.getElementById("Fotografia").value;
+   }  }
+
+
+function Buscar()
+{
+let x = document.getElementById("campo").selectedIndex;
+ let bus=document.getElementById("textoabuscar").value
+ document.getElementById("resultado").value="";
+
+  if (x==0){
+    for(let i=1; i<=totalderegistros; i++){
+      if(bus==arreglo[i-1]["Nombre"]){
+            txt=txt+i+": "+bus+" <=== Se encontro en el registro numero "+i+"<br>"
+            document.getElementById("resultado").innerHTML=txt;
+          }
+        }
+        if(txt==""){
+          document.getElementById("resultado").innerHTML="No se encontraron coincidencias"
+          }
+          document.getElementById("textoabuscar").value="";
+        txt=""
+        }
+        
+      
+
+  else if (x==1){
+    for(let i=1; i<=totalderegistros; i++){
+      if(bus==arreglo[i-1]["Efectosquecausaenloshumanos"]){
+        txt=txt+i+": "+bus+" <=== Se encontro en el registro numero "+i+"<br>"
+            document.getElementById("resultado").innerHTML=txt;
+          }
+        }
+        if(txt==""){
+          document.getElementById("resultado").innerHTML="No se encontraron coincidencias"
+          }
+          document.getElementById("textoabuscar").value="";
+        txt=""
+        }
+  else if (x==2){
+    for(let i=1; i<=totalderegistros; i++){
+      if(bus==arreglo[i-1]["Tratamiento"]){
+        txt=txt+i+": "+bus+" <=== Se encontro en el registro numero "+i+"<br>"
+            document.getElementById("resultado").innerHTML=txt;
+          }
+        }
+        if(txt==""){
+          document.getElementById("resultado").innerHTML="No se encontraron coincidencias"
+          }
+          document.getElementById("textoabuscar").value="";
+        txt=""
+        }
+  else {
+    for(let i=1; i<=totalderegistros; i++){
+      if(bus==arreglo[i-1]["Fotografia"]){
+        txt=txt+i+": "+bus+" <=== Se encontro en el registro numero "+i+"<br>"
+            document.getElementById("resultado").innerHTML=txt;
+          }
+        }
+        if(txt==""){
+          document.getElementById("resultado").innerHTML="No se encontraron coincidencias"
+          }
+          document.getElementById("textoabuscar").value="";
+        txt=""
+        }
+  }
+  
+  
+
+
+
+
+   function Anterior ()             //Accion del boton " Anterior "       
+    {
+      if(totalderegistros==0){
+        alert("No hay ningun registro")
+      }else{
+      if (registroactual==1)
+      alert(" Ya estas en el primer registro!"); 
+      else{
+        registroactual--;
+        desplegarRegistro();
+      }
+    }
+  }
+  
+
+
+   function Primero()                 //Accion del boton " primero "
+    {
+      if(totalderegistros==0){
+        alert("No hay ningun registro")
+      }else{
+      if (registroactual==1){
+        alert("Ya estas en el primer registro")}
+        else{
+      registroactual=1;
+      desplegarRegistro();
+        }
+    }
+    }
+  
+
+
+   function Siguiente()               //Accion del boton " Siguiente "
+    {
+      if(totalderegistros==0){
+        alert("No hay ningun registro")
+      }else{
+      if (registroactual==totalderegistros) 
+      alert (" Ya estas en el ultimo registro! ");
+      else{
+        registroactual++;
+        desplegarRegistro();
+      }
+    }
+  }
+
+
+   function Ultimo()                 //Accion del boton " Ultimo "
+    {
+      if(totalderegistros==0){
+        alert("No hay ningun registro")
+      }else{
+        if (registroactual==totalderegistros){
+          alert("Ya estas en el ultimo registro")}
+        else{
+        registroactual=totalderegistros;
+        desplegarRegistro();
+        
+      }
+    }
+  }
+  
+    
+    
+
+    function Agregar() {
+        if (document.getElementById("Nuevo").innerHTML=="Nuevo")
+        {
+          habilitar();
+         document.getElementById("Nombre").value="";
+         document.getElementById("Efectosquecausaenloshumanos").value="";
+         document.getElementById("Tratamiento").value="";
+         document.getElementById("Fotografia").value="";
+         document.getElementById("Foto").src="";
+         document.getElementById("Nuevo").innerHTML="Guardar";
+
+        } else if(document.getElementById("Nuevo").innerHTML=="Guardar cambio"){
+          let Nombret=document.getElementById("Nombre").value;
+          let Efectosquecausaenloshumanost=document.getElementById("Efectosquecausaenloshumanos").value;
+          let Tratamientot=document.getElementById("Tratamiento").value;
+          let Fotografiat=document.getElementById("Fotografia").value;
+          if(!!Nombret && !!Efectosquecausaenloshumanost && !!Tratamientot && !!Fotografiat){
+          arreglo[registroactual-1]["Nombre"]=Nombret
+          arreglo[registroactual-1]["Efectosquecausaenloshumanos"]=Efectosquecausaenloshumanost
+          arreglo[registroactual-1]["Tratamiento"]=Tratamientot
+          arreglo[registroactual-1]["Fotografia"]=Fotografiat
+          document.getElementById("Nuevo").innerHTML="Nuevo"
+          document.getElementById("Nombre").disabled = true;
+          document.getElementById("Efectosquecausaenloshumanos").disabled = true;
+          document.getElementById("Tratamiento").disabled = true;
+          document.getElementById("Fotografia").disabled = true;
+          document.getElementById("Nuevo").innerHTML="Nuevo";
+          }else {
+          alert ("Faltan datos por capturar");
+
+          }
+        }else if(document.getElementById("Nuevo").innerHTML=="Guardar"){ 
+          let Nombret=document.getElementById("Nombre").value;
+          let Efectosquecausaenloshumanost=document.getElementById("Efectosquecausaenloshumanos").value;
+          let Tratamientot=document.getElementById("Tratamiento").value;
+          let Fotografiat=document.getElementById("Fotografia").value;
+          if(!!Nombret && !!Efectosquecausaenloshumanost && !!Tratamientot && !!Fotografiat)
+          {
+          arreglo.push({Nombre:Nombret,Efectosquecausaenloshumanos:Efectosquecausaenloshumanost,Tratamiento:Tratamientot,Fotografia:Fotografiat});
+          totalderegistros=arreglo.length;
+          registroactual=totalderegistros;
+          desplegarRegistro();
+          document.getElementById("Nombre").disabled = true;
+          document.getElementById("Efectosquecausaenloshumanos").disabled = true;
+          document.getElementById("Tratamiento").disabled = true;
+          document.getElementById("Fotografia").disabled = true;
+          document.getElementById("Nuevo").innerHTML="Nuevo";
+          }else 
+          alert ("Faltan datos por capturar");
+        }
+      
+  }
+
+  function Editar(){
+    
+    if(totalderegistros==0){
+    
+      alert("No hay ningun registro")
+    }
+    else if (document.getElementById("Nuevo").innerHTML=="Nuevo"){
+      habilitar()
+      document.getElementById("Nuevo").innerHTML="Guardar cambio";
+    }else{
+      alert("Debes terminar el registro actual")
+    }
+  }
+  function Eliminar(){
+if(totalderegistros==0){
+    alert("No hay ningun registro")
+  }
+  else {
+    arreglo[registroactual-1]["Nombre"]=""
+    arreglo[registroactual-1]["Efectosquecausaenloshumanos"]=""
+    arreglo[registroactual-1]["Tratamiento"]=""
+    arreglo[registroactual-1]["Fotografia"]=""
+    document.getElementById("Nombre").value=arreglo[registroactual-1]["Nombre"]
+    document.getElementById("Efectosquecausaenloshumanos").value=arreglo[registroactual-1]["Efectosquecausaenloshumanos"]
+    document.getElementById("Tratamiento").value=arreglo[registroactual-1]["Tratamiento"]
+    document.getElementById("Fotografia").value=arreglo[registroactual-1]["Fotografia"]
+    if(registroactual==totalderegistros){
+          registroactual=registroactual-1
+    }
+    totalderegistros=totalderegistros-1
+    
+    desplegarRegistro()
+
+  
+
+    
+  }
+  }
+
+  
+ </script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h2> Getters y Setters de JavaScript </h2>
+
+<p> Perfecto para crear contadores: </p>
+
+<p id="demo"></p>
+
+<script>
+
+// Definir un objeto
+
+var obj = {counter : 0};
+
+ 
+
+// Definir setters y getters
+
+Object.defineProperty(obj, "reset", {
+
+  get : function () {this.counter = 0;}
+
+});
+
+Object.defineProperty(obj, "increment", {
+
+  get : function () {this.counter++;}
+
+});
+
+Object.defineProperty(obj, "decrement", {
+
+  get : function () {this.counter--;}
+
+});
+
+Object.defineProperty(obj, "add", {
+
+  set : function (value) {this.counter += value;}
+
+});
+
+Object.defineProperty(obj, "subtract", {
+
+  set : function (value) {this.counter -= value;}
+
+});
+
+ 
+
+// Juega con el contador:
+
+obj.reset;
+
+obj.add = 5;
+
+obj.subtract = 1;
+
+obj.increment;
+
+obj.decrement;
+
+document.getElementById("demo").innerHTML = obj.counter;
+
+</script>
+
+</body>
+
+</html>

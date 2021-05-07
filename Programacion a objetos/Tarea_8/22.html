@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h2> Getters y Setters de JavaScript </h2>
+
+<p> Getters y setters te permiten obtener y establecer propiedades a través de métodos. </p>
+
+<p id="demo"></p>
+
+<script>
+
+// Crear un objeto:
+
+var person = {
+
+  firstName: "John",
+
+  lastName : "Doe",
+
+  language : "en",
+
+  get lang() {
+
+    return this.language.toUpperCase();
+
+  }
+
+};
+
+// Muestra datos del objeto usando un getter:
+
+document.getElementById("demo").innerHTML = person.lang;
+
+</script>
+
+</body>
+
+</html>

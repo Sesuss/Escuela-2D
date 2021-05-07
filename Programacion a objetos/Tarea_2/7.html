@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Cuantos pesos quieres cambiar? <input type="number" id="pe">
+<br>
+A cuanto esta el dolar? <input type="number" id="do">
+
+<p>Presiona en el boton para realizar la convercion</p>
+
+<button onclick="Sumar()">Convertir</button>
+<p id="resultado"></p>
+
+<script>
+function Sumar() {
+  var a=Number(document.getElementById("pe").value);
+  var b=Number(document.getElementById("do").value);
+  var c=a/b;
+  document.getElementById("resultado").innerHTML="Serian $"+c+" dolares";
+
+}
+</script>
+</body>
+</html>

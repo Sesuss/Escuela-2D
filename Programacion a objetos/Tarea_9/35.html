@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h2>JavaScript addEventListener()</h2>
+
+<p> Este ejemplo muestra cómo pasar valores de parámetros cuando se usa el método addEventListener (). </p>
+
+<p> Haga clic en el botón para realizar un cálculo. </p>
+
+<button id = "myBtn"> Pruébelo </button>
+
+<p id="demo"></p>
+
+<script>
+
+var p1 = 5;
+
+var p2 = 7;
+
+document.getElementById("myBtn").addEventListener("click", function() {
+
+  myFunction(p1, p2);
+
+});
+
+function myFunction(a, b) {
+
+  var result = a * b;
+
+  document.getElementById("demo").innerHTML = result;
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+Mostrar el objeto en un bucle
+
+Las propiedades de un objeto se pueden recopilar en un bucle:
+
+<p id="demo"></p>
+
+<script>
+
+var x, txt = "";
+
+var person = {name:"John", age:50, city:"New York"};
+
+for (x in person) {
+
+  txt += person[x] + " ";
+
+};
+
+document.getElementById("demo").innerHTML = txt;
+
+</script>
+
+</body>
+
+</html>

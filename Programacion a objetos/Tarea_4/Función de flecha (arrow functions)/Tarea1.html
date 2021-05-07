@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<script>
+    let a=parseInt(prompt("Dame el valor de a"))
+    let b=parseInt(prompt("Dame el valor de b"))
+    let c=parseInt(prompt("Dame el valor de c"))
+    function formula_General(a,b,c){
+    let x1=(-b+(((b*b)-(4*(a*c)))**(1/2)))/(2*(a))
+    let x2=(-b-(((b*b)-(4*(a*c)))**(1/2)))/(2*(a))
+
+
+   return ("X1 es -"+x1+"/"+a+"<br>"+"X2 es -"+x2+"/"+a)
+}
+
+    document.write(formula_General(a,b,c))
+    
+    
+    
+    
+       </script>
+</html>

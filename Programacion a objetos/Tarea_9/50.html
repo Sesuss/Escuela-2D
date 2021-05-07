@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+ 
+
+<div id="div1">
+
+<p id = "p1"> Este es un párrafo. </p>
+
+<p id = "p2"> Este es otro párrafo. </p>
+
+</div>
+
+ 
+
+<script>
+
+var parent = document.getElementById("div1");
+
+var child = document.getElementById("p1");
+
+var para = document.createElement("p");
+
+var node = document.createTextNode ("Esto es nuevo");
+
+para.appendChild(node);
+
+parent.replaceChild(para,child);
+
+</script>
+
+ 
+
+</body>
+
+</html>

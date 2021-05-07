@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+Dame la base mas pequeña: <input type="number" id="ba">
+<br>
+Dame la base mas grande: <input type="number" id="Ba">
+<br>
+Dame la altura:<input type="number" id="al">
+
+<p>Presiona en el boton para realizar la operacion</p>
+
+<button onclick="Sumar()">Sacar el area del trapecio</button>
+<p id="resultado"></p>
+
+<script>
+
+function Sumar() {
+  var b=Number(document.getElementById("ba").value);
+  var B=Number(document.getElementById("Ba").value);
+  var al=Number(document.getElementById("al").value);
+  var c=((B+b)*al)/2;
+  document.getElementById("resultado").innerHTML="El area de trapecio es "+ c;
+}
+</script>
+</body>
+</html>

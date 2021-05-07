@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="demo"></p>
+<br>
+<p id="demo1"></p>
+
+<script>
+
+let hg
+var person = {};
+Object.defineProperty(person, "nombre", {
+value:"",
+writable:true,
+enumerable:true,
+configurable:true
+})
+Object.defineProperty(person, "apellidoPaterno", {
+  value:"",
+writable:true,
+enumerable:true,
+configurable:true
+})
+Object.defineProperty(person, "apellidoMaterno", {
+  value:"",
+writable:true,
+enumerable:true,
+configurable:true
+})
+Object.defineProperty(person, "fechadeNacimiento", {
+  value:0,
+writable:true,
+enumerable:true,
+configurable:true
+})
+
+Object.defineProperty(person, "addn", {
+
+set : function (value) {
+  this.nombre=value
+}
+
+});
+Object.defineProperty(person, "addp", {
+
+set : function (value) {
+  this.apellidoPaterno=value
+}
+
+});
+Object.defineProperty(person, "addm", {
+
+set : function (value) {
+  this.apellidoMaterno=value
+
+}
+
+});
+Object.defineProperty(person, "addf", {
+
+set : function (value) {
+  this.fechadeNacimiento=value
+}
+
+});
+
+person.addn="Bernardo"
+person.addp="Santibañez"
+person.addm="Lomeli"
+person.addf=2001
+
+Object.defineProperty(person, "fullName", {
+
+  get : function () {return this.nombre+ " "+this.apellidoPaterno +" " + this.apellidoMaterno;}
+
+});
+
+Object.defineProperty(person, "age", {
+
+get : function () {
+    let agee=2021-person.fechadeNacimiento
+    return (agee) }
+
+});
+
+
+
+document.getElementById("demo").innerHTML = person.fullName;
+document.getElementById("demo1").innerHTML = person.age;
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h2>Objectos en JavaScript</h2>
+
+<p>Un método de objeto es una definición de función, almacenada como un valor de propiedad.</p>
+
+<p id="demo"></p>
+
+<script>
+
+// Create an object:
+
+var person = {
+
+  firstName: "John",
+
+  lastName : "Doe",
+
+  id     : 5566,
+
+  fullName : function() {
+
+    return this.firstName + " " + this.lastName;
+
+  }
+
+};
+
+// Display data from the object:
+
+document.getElementById("demo").innerHTML = person.fullName();
+
+</script>
+
+</body>
+
+</html>

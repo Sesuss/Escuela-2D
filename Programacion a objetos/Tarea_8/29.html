@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+ 
+
+<h2> Constructores de objetos JavaScript </h2>
+
+ 
+
+<p> No puede agregar una nueva propiedad a una función de constructor. </p>
+
+ 
+
+<p id="demo"></p>
+
+ 
+
+<script>
+
+ 
+
+// Función constructora para objetos Persona
+
+function Person(first, last, age, eye) {
+
+  this.firstName = first;
+
+  this.lastName = last;
+
+  this.age = age;
+
+  this.eyeColor = eye;
+
+}
+
+ 
+
+// NO puedes agregar una nueva propiedad a una función constructora
+
+Person.nationality = "English";
+
+ 
+
+// Crear objetos de 2 personas
+
+var myFather = new Person("John", "Doe", 50, "blue");
+
+var myMother = new Person("Sally", "Rally", 48, "green");
+
+ 
+
+// Mostrar nacionalidad
+
+document.getElementById("demo").innerHTML =
+
+"La nacionalidad de mi padre es " + myFather.nationality;
+
+</script>
+
+ 
+
+</body>
+
+</html>

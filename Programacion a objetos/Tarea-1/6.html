@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+ 
+
+<p> Ingrese un número y haga clic en Aceptar: </p>
+
+ 
+
+<input id = "id1" type = "number" min = "100">
+
+<button onclick = "myFunction ()"> OK </button>
+
+ 
+
+<p> Si el número es menor que 100 (el atributo min de la entrada), se mostrará un mensaje de error. </p>
+
+ 
+
+<p id="demo"></p>
+
+ 
+
+<script>
+
+function myFunction() {
+
+  var txt = "";
+
+  if (document.getElementById("id1").validity.rangeUnderflow) {
+
+    txt = "El valor es muy pequeño";
+
+  } else {
+
+    txt = "Entrada correcta";
+
+  }
+
+  document.getElementById("demo").innerHTML = txt;
+
+}
+
+</script>
+
+ 
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+ 
+
+<h2> Método de objeto JavaScript </h2>
+
+<p> Se puede acceder a los datos del objeto usando un captador. </p>
+
+<p id="demo"></p>
+
+<script>
+
+// Crear un objeto:
+
+var person = {
+
+  firstName: "John",
+
+  lastName : "Doe",
+
+  get fullName() {
+
+    return this.firstName + " " + this.lastName;
+
+  }
+
+};
+
+// Muestra datos del objeto usando un getter:
+
+document.getElementById("demo").innerHTML = person.fullName;
+
+</script>
+
+</body>
+
+</html>

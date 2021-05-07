@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h2> Objetos de visualización de JavaScript </h2>
+
+<p> JSON.stringify no encadenará funciones: </p>
+
+<p id="demo"></p>
+
+<script>
+
+var person = {name:"John", age:function () {return 30;}};
+
+var myString = JSON.stringify(person);
+
+document.getElementById("demo").innerHTML = myString;
+
+</script>
+
+</body>
+
+</html>

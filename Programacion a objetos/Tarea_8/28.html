@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+ 
+
+<h2> Constructores de objetos JavaScript </h2>
+
+ 
+
+<p id="demo"></p>
+
+ 
+
+<script>
+
+ 
+
+// Función constructora para objetos Persona
+
+function Person(first, last, age, eye) {
+
+  this.firstName = first;
+
+  this.lastName = last;
+
+  this.age = age;
+
+  this.eyeColor = eye;
+
+}
+
+ 
+
+// Crear objetos de 2 personas
+
+var myFather = new Person("John", "Doe", 50, "blue");
+
+var myMother = new Person("Sally", "Rally", 48, "green");
+
+ 
+
+// Agregar un método de nombre al primer objeto
+
+myFather.name = function() {
+
+  return this.firstName + " " + this.lastName;
+
+};
+
+ 
+
+// Mostrar nombre completo
+
+document.getElementById("demo").innerHTML =
+
+"El nombre de mi padre es " + myFather.name();
+
+</script>
+
+ 
+
+</body>
+
+</html>

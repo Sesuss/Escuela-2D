@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<body>
+ <div class="Caja ">
+   <h1 class="sexo">Inventario</h1>
+ <h4>Producto: </h4> <h4 id="Titulo"></h4>
+  
+ <!--BOTONES-->
+
+  Nombre <br> <input type="text" id="Nombre" class="Boton"  >
+  <br>  <br>
+  Precio <br> <input type="text" id="Precio" class="Boton" >
+  <br><br>
+  ID <br> <input type="text" id="ID" class="Boton"> 
+  <br>  <br>
+  Cantidad <br> <input type="text" id="Cantidad" class="Boton" >
+  <br>  
+  
+  <br>
+  <button onclick="Agregar()"id="Nuevo" " >Nuevo</button>
+  <button onclick="Editar()">Editar</button>
+  <button onclick="Eliminar()" id="Eliminar">Limpiar</button>
+    <br>
+  <button onclick="Primero()"><<</button>
+  <button onclick="Anterior()"><</button>
+  <button onclick="Siguiente()">></button>
+  <button onclick="Ultimo()">>></button>
+  <hr>
+
+  <button onclick="limpiar()"> Limpiar listas </button>
+  <br>
+  Busque un producto con la ID <br> <input type="text" id="textoabuscar" class="Boton">
+  <button onclick="Buscar()"> Buscar </button> 
+</div>
+  <p id="resultado"></p>
+  <br>
+  <button onclick="lista()">Listar todos los productos</button>
+<br>
+<p id="lista"></p>
+
+
+
+  <script>
+    arreglo=[];
+    txt="";
+    tx=""
+    indice=0;
+    elemento="";
+    registroactual=0; 
+    totalderegistros=0;
+    desplegarRegistro();
+    habilitar();
+
+    function limpiar(){
+      document.getElementById("resultado").innerHTML=""
+      document.getElementById("lista").innerHTML=""
+    }
+
+    document.getElementById("Nombre").disabled = true;
+    document.getElementById("Precio").disabled = true;
+    document.getElementById("ID").disabled = true;
+    document.getElementById("Cantidad").disabled = true;
+
+    function lista(){
+      document.getElementById("lista").value=""
+      tx=""
+
+      for(let x=1; x<=totalderegistros; x++){
+        if(arreglo[x-1]["Nombre"]==""){
+          } else{
+        tx=tx+"Producto "+x+"<br>"+"Nombre: "+arreglo[x-1]["Nombre"]+"<br>"+"Precio: "+arreglo[x-1]["Precio"]+"<br>"+"ID: "+arreglo[x-1]["ID"]+"<br>"+"Cantidad: "+arreglo[x-1]["Cantidad"]+"<br>"+"<br>"
+        document.getElementById("lista").innerHTML=tx;
+        }
+        
+      }
+    }
+
+
+
+    function habilitar()
+    {
+      document.getElementById("Nombre").disabled = false;
+      document.getElementById("Precio").disabled = false;
+      document.getElementById("ID").disabled = false;
+      document.getElementById("Cantidad").disabled = false;
+    }
+
+    function desplegarRegistro ()
+    {   
+      if (totalderegistros==0) 
+      elemento=document.getElementById("Titulo").innerHTML = "Aun no existe ningun producto";
+      else
+      {
+        elemento=document.getElementById("Titulo").innerHTML = registroactual + " de " + totalderegistros;
+        elemento=document.getElementById("Nombre").value=arreglo[registroactual-1].Nombre;
+        elemento=document.getElementById("Precio").value=arreglo[registroactual-1].Precio;
+        elemento=document.getElementById("ID").value=arreglo[registroactual-1].ID;
+        elemento=document.getElementById("Cantidad").value=arreglo[registroactual-1].Cantidad;
+   }  }
+
+
+function Buscar()
+{
+ let bus=document.getElementById("textoabuscar").value
+ document.getElementById("resultado").value="";
+let x =2
+
+      for(let i=1; i<=totalderegistros; i++){
+      if(bus==arreglo[i-1]["ID"]){
+        txt=txt+"Se encontro coincidencia  en el producto "+i+"<br>"+"Nombre: "+arreglo[i-1]["Nombre"]+"<br>"+"Precio: "+arreglo[i-1]["Precio"]+"<br>"+"ID: "+arreglo[i-1]["ID"]+"<br>"+"Cantidad: "+arreglo[i-1]["Cantidad"]+"<br>"+"<br>"
+        
+            document.getElementById("resultado").innerHTML=txt;
+          }
+        }
+        if(txt==""){
+          document.getElementById("resultado").innerHTML="No se encontraron coincidencias"
+          }
+          document.getElementById("textoabuscar").value="";
+        txt=""
+        
+  }
+  
+  
+
+
+
+
+   function Anterior ()                
+    {
+      if(totalderegistros==0){
+       
+      }else{
+      if (registroactual==1){
+      
+      }else{
+        registroactual--;
+        desplegarRegistro();
+      }
+    }
+  }
+  
+
+
+   function Primero()               
+    {
+      if(totalderegistros==0){
+       
+      }else{
+      if (registroactual==1){
+       
+      }else{
+      registroactual=1;
+      desplegarRegistro();
+        }
+    }
+    }
+  
+
+
+   function Siguiente()               
+    {
+      if(totalderegistros==0){
+       
+      }else{
+      if (registroactual==totalderegistros) {
+     
+      }else{
+        registroactual++;
+        desplegarRegistro();
+      }
+    }
+  }
+
+
+   function Ultimo()                 
+    {
+      if(totalderegistros==0){
+  
+      }else{
+        if (registroactual==totalderegistros){
+
+         }
+        else{
+        registroactual=totalderegistros;
+        desplegarRegistro();
+        
+      }
+    }
+  }
+  
+    
+    
+
+    function Agregar() {
+        if (document.getElementById("Nuevo").innerHTML=="Nuevo")
+        {
+          habilitar();
+         document.getElementById("Nombre").value="";
+         document.getElementById("Precio").value="";
+         document.getElementById("ID").value="";
+         document.getElementById("Cantidad").value="";
+         document.getElementById("Nuevo").innerHTML="Guardar";
+
+        } else if(document.getElementById("Nuevo").innerHTML=="Guardar cambio"){
+          let Nombret=document.getElementById("Nombre").value;
+          let Preciot=document.getElementById("Precio").value;
+          let IDt=document.getElementById("ID").value;
+          let Cantidadt=document.getElementById("Cantidad").value;
+          if(!!Nombret && !!Preciot && !!IDt && !!Cantidadt){
+          arreglo[registroactual-1]["Nombre"]=Nombret
+          arreglo[registroactual-1]["Precio"]=Preciot
+          arreglo[registroactual-1]["ID"]=IDt
+          arreglo[registroactual-1]["Cantidad"]=Cantidadt
+          document.getElementById("Nuevo").innerHTML="Nuevo"
+          document.getElementById("Nombre").disabled = true;
+          document.getElementById("Precio").disabled = true;
+          document.getElementById("ID").disabled = true;
+          document.getElementById("Cantidad").disabled = true;
+          document.getElementById("Nuevo").innerHTML="Nuevo";
+          }else {
+          alert ("Faltan datos por capturar");
+
+          }
+        }else if(document.getElementById("Nuevo").innerHTML=="Guardar"){ 
+          let Nombret=document.getElementById("Nombre").value;
+          let Preciot=document.getElementById("Precio").value;
+          let IDt=document.getElementById("ID").value;
+          let Cantidadt=document.getElementById("Cantidad").value;
+          if(!!Nombret && !!Preciot && !!IDt && !!Cantidadt)
+          {
+          arreglo.push({Nombre:Nombret,Precio:Preciot,ID:IDt,Cantidad:Cantidadt});
+          totalderegistros=arreglo.length;
+          registroactual=totalderegistros
+          desplegarRegistro();
+          document.getElementById("Nombre").disabled = true;
+          document.getElementById("Precio").disabled = true;
+          document.getElementById("ID").disabled = true;
+          document.getElementById("Cantidad").disabled = true;
+          document.getElementById("Nuevo").innerHTML="Nuevo";
+          }else 
+          alert ("Faltan datos por capturar");
+        }
+      
+  }
+
+  function Editar(){
+    
+    if(totalderegistros==0){
+    
+      alert("No hay ningun registro")
+    }
+    else if (document.getElementById("Nuevo").innerHTML=="Nuevo"){
+      habilitar()
+      document.getElementById("Nuevo").innerHTML="Guardar cambio";
+    }else{
+      alert("Debes terminar el registro actual")
+    }
+  }
+
+
+  function Eliminar(){
+if(totalderegistros==0){
+    alert("No hay ningun registro")
+  }
+  else {
+    if (registroactual==1){
+      arreglo[registroactual-1]["Nombre"]=""
+    arreglo[registroactual-1]["Precio"]=""
+    arreglo[registroactual-1]["ID"]=""
+    arreglo[registroactual-1]["Cantidad"]=""
+
+    desplegarRegistro()
+
+    }else{
+          arreglo[registroactual-1]["Nombre"]=""
+          arreglo[registroactual-1]["Precio"]=""
+          arreglo[registroactual-1]["ID"]=""
+          arreglo[registroactual-1]["Cantidad"]=""
+    desplegarRegistro()
+       
+      }
+    }
+  }
+
+  
+ </script>
+
+</body>
+</html>

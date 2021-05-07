@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    </head>
+<body>
+Valor: <input type="text" id="valor">
+<button type="button" onclick="Agregar()" class="btn btn-primary">Agregar</button>
+<hr>
+Valor a buscar : <input type="text" id="elemento">
+<button type="button" onclick="Buscar()"class="btn btn-primary">Buscar</button>
+<hr>
+<p id="resultado"></p>
+<script>
+arreglo=[];
+txt="";
+indice=0;
+elemento="";
+
+function myFunction(value) {
+    //<li class="list-group-item">Hola profe</li>
+  txt ='<ul class="list-group">' +'<li class="list-group-item">'+txt +indice+" : "+ value +'</li>'+'</ul>' +"<br>";
+  indice++; 
+}
+
+function myFunctionBuscar(value) {
+  if(elemento==value)
+  txt = txt +indice+" : "+ value + "<--Encontrado<br>";
+  else
+  txt = txt +indice+" : "+ value + "<br>";
+  indice++; 
+}
+
+function Buscar()
+{
+  elemento=document.getElementById("elemento").value;
+  if(elemento!='')
+{
+  indice=1;
+  txt="";
+  arreglo.forEach(myFunctionBuscar);
+  document.getElementById("resultado").innerHTML=txt;
+  document.getElementById("elemento").value="";
+}
+else
+alert("No hay elemento capturado para buscarlo");
+
+}
+
+function Agregar() {
+if(document.getElementById("valor").value!='')
+{
+  valor=document.getElementById("valor").value; 
+  txt="";
+  indice=1;
+  arreglo.push(valor);
+  arreglo.forEach(myFunction);
+  document.getElementById("resultado").innerHTML=txt;
+  document.getElementById("valor").value="";
+}
+else
+alert("No hay valor para agregar!!")
+}
+</script>
+
+</body>
+</html>

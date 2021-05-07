@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <script>
+        document.write(fun())
+        function fun(){
+            let mg=1
+            let nume=parseInt(prompt("De cuantos valores sera el arreglo?"))
+            let vec=[]
+        
+            for(let i=1;i<=nume;i++){
+                vec[i-1]=parseFloat(prompt("Dame el valor numero "+i+" de el arreglo"))
+                mg*=vec[i-1]
+            }
+            mg=mg**(1/nume)
+            
+            return (mg);
+        }
+        </script>
+</html>

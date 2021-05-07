@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+<h2> Constructores de objetos JavaScript </h2>
+
+<p id="demo"></p>
+
+<script>
+
+// Función constructora para objetos Persona
+
+function Person(firstName,lastName,age,eyeColor) {
+
+  this.firstName = firstName;
+
+  this.lastName = lastName;
+
+  this.age = age;
+
+  this.eyeColor = eyeColor;
+
+  this.changeName = function (name) {
+
+    this.lastName = name;
+
+  }
+
+}
+
+// Crear un objeto persona
+
+var myMother = new Person("Sally","Rally",48,"green");
+
+ 
+
+// Cambiar apellido
+
+myMother.changeName("Doe");
+
+ 
+
+// Mostrar apellido
+
+document.getElementById("demo").innerHTML =
+
+"El apellido de mi madre es " + myMother.lastName;
+
+</script>
+
+ 
+
+</body>
+
+</html>
