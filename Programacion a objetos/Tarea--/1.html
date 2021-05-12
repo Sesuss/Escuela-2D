@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Inventario v2</title>
+    <script src="app.js"></script>
+
+</head>
+<body>
+    <div >
+        <h1>Inventario</h1>
+     
+       Nombre <br> <input type="text" id="Nombre" class="Boton" disabled= "false" >
+       <br>  <br>
+       <button onclick="Agregar()"id="Nuevo"  >Nuevo</button>
+       <button onclick="Cambiar()"id="Boto" hidden=true  >Guardar cambios</button>
+       <hr>
+     
+       <button onclick="limpiar()"> Limpiar listas </button>
+       <br>
+       Busque por nombre <br> <input type="text" id="textoabuscar" class="Boton">
+       <button onclick="Buscar()"> Buscar </button> 
+       <button onclick="Borrar()" id="Borrar" hidden=true>Eliminar</button>
+       <button onclick="Cambiar()" id="Cambiar" hidden=true>Cambiar</button>
+
+     </div>
+       <p id="resultado"></p>
+       <br>
+       <button onclick="lista()">Listar todos los productos</button>
+
+     <br>
+     <p id="lista"></p>
+     
+     
+     
+</body>
+</html>
