@@ -42,14 +42,12 @@ class Inventario{
         
     Cambiar(ID){
         if(document.getElementById("Boto").hidden==true){
-            console.log("ga")
             habili()
             document.getElementById("Nombre").innerHTML=" "
             document.getElementById("Boto").hidden=false
             document.getElementById("Nuevo").hidden=true
                        
         }else{
-            console.log("ss")
             let gg =document.getElementById("Nombre").value
             for(let i=0;i<this.datos.length; i++){
                 if (this.datos[i].Nombre===ID) {
@@ -131,7 +129,6 @@ function Cambiar(){
         Tienda.Cambiar(1)
 
     }else{
-        console.log("Perro")
         let ID=document.getElementById("textoabuscar").value
         Tienda.Cambiar(ID)
     }
